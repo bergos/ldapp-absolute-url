@@ -9,7 +9,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function () { return null }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 123 } }
@@ -27,7 +27,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function () { return null }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 123 } },
@@ -46,7 +46,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function () { return null }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 80 } }
@@ -64,7 +64,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function () { return null }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 443 } },
@@ -83,7 +83,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function () { return null }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 123 } }
@@ -101,7 +101,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function () { return null }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 123 } }
@@ -124,7 +124,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function (key) { return key === 'trust proxy' }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 123 } }
@@ -132,8 +132,7 @@ describe('absoluteUrl', function () {
       url: 'index.html',
       headers: {
         'x-forwarded-proto': 'https',
-        'x-forwarded-host': 'otherhost',
-        'x-forwarded-port': 456
+        'x-forwarded-host': 'otherhost:456'
       }
     }
 
@@ -147,7 +146,7 @@ describe('absoluteUrl', function () {
       app: {
         get: function () { return null }
       },
-      host: 'example.org',
+      hostname: 'example.org',
       protocol: 'http',
       socket: {
         address: function () { return { port: 123 } }

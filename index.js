@@ -8,7 +8,7 @@ function init (options) {
     req.absoluteUrl = function () {
       var absoluteUrl = {
         protocol: this.protocol,
-        hostname: this.host,
+        hostname: this.hostname,
         port: this.socket.address().port,
         pathname: this.url
       }
@@ -28,11 +28,10 @@ function init (options) {
         }
 
         if ('x-forwarded-host' in this.headers) {
-          absoluteUrl.hostname = this.headers['x-forwarded-host']
-        }
+          var hostParts = this.headers['x-forwarded-host'].split(':')
 
-        if ('x-forwarded-port' in this.headers) {
-          absoluteUrl.port = parseInt(this.headers['x-forwarded-port'], 10)
+          absoluteUrl.hostname = hostParts.shift()
+          absoluteUrl.port = hostParts.shift()
         }
       }
 
