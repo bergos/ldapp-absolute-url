@@ -10,7 +10,7 @@ function init (options) {
         protocol: this.protocol,
         hostname: this.hostname,
         port: this.socket.address().port,
-        pathname: this.url
+        pathname: this.originalUrl || this.url
       }
 
       if (absoluteUrl.protocol === 'http' && req.socket.ssl) {

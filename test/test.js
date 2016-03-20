@@ -22,6 +22,25 @@ describe('absoluteUrl', function () {
     assert.equal(req.absoluteUrl(), 'http://example.org:123/index.html')
   })
 
+  it('should generate a HTTP URL that contains protocol, hostname, port and path from originalUrl', function () {
+    var req = {
+      app: {
+        get: function () { return null }
+      },
+      hostname: 'example.org',
+      protocol: 'http',
+      socket: {
+        address: function () { return { port: 123 } }
+      },
+      url: 'index.html',
+      originalUrl: 'original/index.html'
+    }
+
+    absoluteUrl.init()(req, null, function () {})
+
+    assert.equal(req.absoluteUrl(), 'http://example.org:123/original/index.html')
+  })
+
   it('should detect SSL/TLS protocol', function () {
     var req = {
       app: {
