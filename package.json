@@ -4,7 +4,7 @@
   "description": "Adds .absoluteUrl() function to req",
   "main": "index.js",
   "scripts": {
-    "test": "standard && node_modules/mocha/bin/mocha"
+    "test": "standard && mocha"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,11 @@
     "url": "https://github.com/zazukoians/ldapp-absolute-url/issues"
   },
   "homepage": "https://github.com/zazukoians/ldapp-absolute-url",
-  "dependencies": {},
+  "dependencies": {
+    "absolute-url": "^1.0.0"
+  },
   "devDependencies": {
-    "mocha": "^2.2.5"
+    "mocha": "^2.4.5",
+    "standard": "^6.0.8"
   }
 }
